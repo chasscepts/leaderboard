@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+      name="viewModel"
+      type="com.chass.gadsleaderboard.viewModels.SubmitFormViewModel" />
+  </data>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1.0"
+      tools:ignore="ObsoleteLayoutParam">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+          android:id="@+id/name_group"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintTop_toTopOf="parent">
+
+          <EditText
+            android:id="@+id/firstname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/text_input_bg"
+            android:hint="@string/ucf_first_name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName|textCapWords"
+            android:nextFocusLeft="@id/submit_btn"
+            android:nextFocusRight="@id/lastname"
+            android:nextFocusUp="@id/submit_btn"
+            android:nextFocusDown="@id/lastname"
+            android:nextFocusForward="@id/lastname"
+            android:padding="12dp"
+            android:text="@={viewModel.firstname}" />
+
+          <EditText
+            android:id="@+id/lastname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/text_input_bg"
+            android:hint="@string/ucf_last_name"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName|textCapWords"
+            android:nextFocusLeft="@id/firstname"
+            android:nextFocusRight="@id/email"
+            android:nextFocusUp="@id/firstname"
+            android:nextFocusDown="@id/email"
+            android:nextFocusForward="@id/email"
+            android:padding="12dp"
+            android:text="@={viewModel.lastname}" />
+        </LinearLayout>
+
+
+        <EditText
+          android:id="@+id/email"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          android:background="@drawable/text_input_bg"
+          android:hint="@string/ucf_email_address"
+          android:importantForAutofill="no"
+          android:inputType="textEmailAddress"
+          android:nextFocusLeft="@id/lastname"
+          android:nextFocusRight="@id/link"
+          android:nextFocusUp="@id/lastname"
+          android:nextFocusDown="@id/link"
+          android:nextFocusForward="@id/link"
+          android:padding="12dp"
+          android:text="@={viewModel.email}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/name_group" />
+
+        <EditText
+          android:id="@+id/link"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          android:background="@drawable/text_input_bg"
+          android:hint="@string/github_link_hint"
+          android:importantForAutofill="no"
+          android:inputType="textUri"
+          android:nextFocusLeft="@id/email"
+          android:nextFocusRight="@id/submit_btn"
+          android:nextFocusUp="@id/email"
+          android:nextFocusDown="@id/submit_btn"
+          android:nextFocusForward="@id/submit_btn"
+          android:padding="12dp"
+          android:text="@={viewModel.link}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/email" />
+
+        <Button
+          android:id="@+id/submit_form_btn"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="48dp"
+          android:background="@drawable/form_button_bg"
+          android:nextFocusLeft="@id/link"
+          android:nextFocusRight="@id/firstname"
+          android:nextFocusUp="@id/link"
+          android:nextFocusDown="@id/firstname"
+          android:nextFocusForward="@id/firstname"
+          android:onClick="@{() -> viewModel.submit()}"
+          android:paddingStart="48dp"
+          android:paddingEnd="48dp"
+          android:text="@string/ucf_submit"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/link" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</layout>

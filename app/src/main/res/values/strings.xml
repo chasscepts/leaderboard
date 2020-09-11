@@ -1,0 +1,30 @@
+<resources>
+  <string name="app_name">GadsLeaderBoard</string>
+  <string name="app_title">LeaderBoard</string>
+  <string name="ucf_Learning_leaders">Learning Leaders</string>
+  <string name="skill_iq_leaders">Skill IQ Leaders</string>
+  <string name="hours_rider_format">%1$d learning hours, %2$s</string>
+  <string name="iq_rider_format">%1$d Skill IQ Score, %2$s</string>
+  <string name="ucf_badge">Badge</string>
+  <string name="ucf_logo">Logo</string>
+  <string name="ucf_submit">Submit</string>
+  <string name="ucf_project_submission">Project Submission</string>
+  <string name="ucf_first_name">First Name</string>
+  <string name="ucf_last_name">Last Name</string>
+  <string name="ucf_email">Email</string>
+  <string name="ucf_email_address">Email Address</string>
+  <string name="github_link_hint">Project On GITHUB (link)</string>
+  <string name="ucf_back_button">Back Button</string>
+  <string name="ucf_large_logo">Large Logo</string>
+  <string name="ucf_divider">Divider</string>
+  <string name="submit_success_message">Submission Successful</string>
+  <string name="submit_failure_message">Submission not Successful</string>
+  <string name="ucf_cancel_button">Cancel Button</string>
+  <string name="are_you_sure">Are you sure</string>
+  <string name="yes">Yes</string>
+  <string name="ucf_success_image">Success Image</string>
+  <string name="ucf_question_mark">Question Mark</string>
+  <string name="load_error_message">An error occurred while loading Top Learners</string>
+  <string name="ucf_reload">Reload</string>
+  <string name="ucf_app_logo">App Logo</string>
+</resources>

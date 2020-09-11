@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <import type="android.view.View"/>
+    <import type="com.chass.gadsleaderboard.enums.FormStates"/>
+    <variable
+      name="viewModel"
+      type="com.chass.gadsleaderboard.ui.submit.SubmitViewModel" />
+  </data>
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.submit.SubmitActivity"
+    android:background="@drawable/bg"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:theme="@style/AppTheme.AppBarOverlay">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="?actionBarSize"
+        android:padding="@dimen/appbar_padding">
+
+        <ImageButton
+          android:id="@+id/back_btn"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@color/transparent"
+          android:contentDescription="@string/ucf_back_button"
+          android:minHeight="0dp"
+          android:src="@drawable/ic_keyboard_backspace_white_24dp"
+          app:layout_constraintBottom_toBottomOf="@id/logo_large"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@id/logo_large" />
+
+        <ImageView
+          android:id="@+id/logo_large"
+          android:layout_width="wrap_content"
+          android:layout_height="72dp"
+          android:layout_marginStart="16dp"
+          android:contentDescription="@string/ucf_large_logo"
+          android:gravity="start"
+          android:text="@string/app_title"
+          android:textAllCaps="true"
+          android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+          app:layout_constraintStart_toEndOf="@id/back_btn"
+          app:layout_constraintTop_toTopOf="parent"
+          app:srcCompat="@drawable/logo_medium" />
+
+        <TextView
+          android:id="@+id/title"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:text="@string/ucf_project_submission"
+          android:textAlignment="center"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/gold"
+          android:textStyle="bold"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/logo_large" />
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="2dp"
+          android:layout_marginTop="8dp"
+          android:background="@drawable/submit_title_underline_bg"
+          app:layout_constraintTop_toBottomOf="@id/title"
+          tools:layout_editor_absoluteX="16dp" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+      android:id="@+id/submit_view_holder"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior">
+      <include
+        layout="@layout/submit_form"
+        app:viewModel="@{viewModel.submitFormViewModel}"/>
+<!--
+      <include
+        layout="@layout/submit_form"
+        app:viewModel="@{viewModel.submitFormViewModel}"
+        android:visibility="@{viewModel.state == FormStates.FILL? View.VISIBLE : View.GONE}"/>
+
+      <include
+        layout="@layout/confirm_form_submit"
+        app:viewModel="@{viewModel}"
+        android:visibility="@{viewModel.state == FormStates.CONFIRM? View.VISIBLE : View.GONE}"
+        tools:visibility="gone" />
+
+      <include
+        layout="@layout/submit_result_view"
+        app:viewModel="@{viewModel}"
+        android:visibility="@{viewModel.state == FormStates.SUCCESS || viewModel.state == FormStates.FAILED? View.VISIBLE : View.GONE}"
+        tools:visibility="gone" />
+
+      <include
+        layout="@layout/busy_view"
+        app:viewModel="@{viewModel.busy}"
+        android:visibility="@{viewModel.state == FormStates.BUSY? View.VISIBLE : View.GONE}"
+        tools:visibility="gone" />
+-->
+    </FrameLayout>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

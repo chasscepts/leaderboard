@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+      name="learner"
+      type="com.chass.gadsleaderboard.models.TopLearner" />
+  </data>
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+      android:id="@+id/badge"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/ucf_badge"
+      android:scaleType="fitCenter"
+      app:badge="@{learner}"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:srcCompat="@drawable/top_learner" />
+
+    <TextView
+      android:id="@+id/name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:text="@{learner.name}"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textStyle="bold"
+      app:layout_constraintStart_toEndOf="@id/badge"
+      app:layout_constraintTop_toTopOf="@id/badge"
+      tools:text="Kojo Asante" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      app:layout_constraintStart_toStartOf="@id/name"
+      app:layout_constraintTop_toBottomOf="@id/name"
+      app:rider="@{learner}"
+      tools:text="223 learning hours, Kenya" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
